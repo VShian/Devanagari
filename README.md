@@ -45,5 +45,7 @@ returns _model_ with the mentioned specs.
 
 We have also included training diectory in this repo containing checkpoint of the _model_ after 15 epochs (which is quite less.. but can be continue it from there to 50 - for better results) which can be loaded, as shown below, for testing.
 
-^ we assume background and letters to be in white and black colours respectively.
-^^ to satisy our _model_ which requires background and letters to be in black and white colours respectively.
+
+_^ we assume background and letters to be in white and black colours respectively._
+
+_^^ to satisy our _model_ which requires background and letters to be in black and white colours respectively._
