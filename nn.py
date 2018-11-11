@@ -37,7 +37,7 @@ def load_data():
   return (train_images, train_labels), (test_images,test_labels)
 
 def create_model():
-    model = keras.Sequential([
+  model = keras.Sequential([
       keras.layers.Dense(600, input_shape=(1024,), activation='relu'),
       keras.layers.Dense(800, activation='relu'),
       keras.layers.Dense(1000, activation='relu'),
