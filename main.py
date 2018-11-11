@@ -5,12 +5,12 @@ import ip
 import nn
 
 (train_images, train_labels), (test_images,test_labels) = load_data()
-model = load_model(len(train_images[1]))
+model = create_model()
 history = model.fit(train_images, train_labels, epochs=15, batch_size=256, verbose=1)
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 print test_loss, test_acc
 def predict(img):
-	p=model.predict(img.flatten())
+	p=model.predict(np.array([img.flatten(),]))
 	return p
 # labels=['ka','kha','ga','gha','knya','cha','chha','ja','jha','kni',]
 
