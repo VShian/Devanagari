@@ -2,11 +2,6 @@ import cv2
 import numpy as np
 # from matplotlib import pyplot as plt
 
-#ret,thresh = cv2.threshold(img,127,255,cv2.THRESH_BINARY)
-#hist = cv2.calcHist([thresh],[0],None,[2],[0,2])
-# height,width = img.shape
-# print thresh.shape
-
 def get_chars(start,end, img):
 	height, width = img.shape
 
