@@ -38,7 +38,7 @@ nn.load_data()
 returns 'train' and 'test' data as numpy arrays
 
 ```python
-nn.load_model()
+nn.create_model()
 ```
 
 returns _model_ with the mentioned specs.
