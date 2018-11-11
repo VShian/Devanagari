@@ -25,9 +25,9 @@ def load_data():
   # test_images=np.asarray(test_images)
   # test_labels=np.asarray(test_labels)
   # print train_labels.shape,train_images.shape
-  train=zip(train_images,train_labels)
+  train=list(zip(train_images,train_labels))
   random.shuffle(train)
-  train_images[:],train_labels[:]=zip(*train)
+  train_images[:],train_labels[:]=list(zip(*train))
 
   test_images=np.array(train_images[-2000:])
   test_labels=np.array(train_labels[-2000:])
@@ -36,7 +36,7 @@ def load_data():
   
   return (train_images, train_labels), (test_images,test_labels)
 
-def load_model(input_length):
+def create_model():
     model = keras.Sequential([
       keras.layers.Dense(600, input_shape=(1024,), activation='relu'),
       keras.layers.Dense(800, activation='relu'),
@@ -51,6 +51,7 @@ def load_model(input_length):
               metrics=['accuracy'])
   return model
 
+'''
 def train_model(train_images, train_labels, model):
   history = model.fit(train_images, train_labels, epochs=5, batch_size=256, verbose=1)
   return history,model
@@ -59,6 +60,5 @@ def test_model(test_images, test_labels, model):
   test_loss, test_acc = model.evaluate(test_images, test_labels)
   print('Test accuracy:', test_acc)
   return test_loss, test_acc
-
-
+'''
 # predictions = model.predict(test_images)
