@@ -4,9 +4,11 @@ import numpy as np
 import ip
 import nn
 
+checkpoint_path = "training/cp.ckpt"
 (train_images, train_labels), (test_images,test_labels) = load_data()
 model = create_model()
-history = model.fit(train_images, train_labels, epochs=15, batch_size=256, verbose=1)
+# history = model.fit(train_images, train_labels, epochs=15, batch_size=256, verbose=1)
+model.load_weights(checkpoint_path)
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 print test_loss, test_acc
 def predict(img):
