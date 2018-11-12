@@ -3,11 +3,23 @@ import numpy as np
 # from matplotlib import pyplot as plt
 import ip
 import nn
+import os
 
 checkpoint_path = "training/cp.ckpt"
+checkpoint_dir = os.path.dirname(checkpoint_path)
 (train_images, train_labels), (test_images,test_labels) = load_data()
+# Create checkpoint callback during initial training
+# cp_callback = tf.keras.callbacks.ModelCheckpoint(checkpoint_path, 
+#                                                  save_weights_only=True,
+#                                                  verbose=1)
 model = create_model()
+# Train the model and save it to training/cp.ckpt during initial training
+# model.fit(train_images, train_labels,  epochs = 15, 
+#           validation_data = (test_images,test_labels),
+#           callbacks = [cp_callback])
 # history = model.fit(train_images, train_labels, epochs=15, batch_size=256, verbose=1)
+
+# Load the model from training folder
 model.load_weights(checkpoint_path)
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 print test_loss, test_acc
