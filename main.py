@@ -24,9 +24,9 @@ model.load_weights(checkpoint_path)
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 print test_loss, test_acc
 def predict(img):
-	p=model.predict(np.array([img.flatten(),]))
-	return p
-# labels=['ka','kha','ga','gha','knya','cha','chha','ja','jha','kni',]
+	return model.predict(np.array([img.flatten(),]))
+
+# labels=['ka','kha','ga','gha','knya','cha','chha','ja','jha','yna','taamatar','thaa','daa',''dhaa,'adna','tabala','tha','da','dha','na','pa','pha','ba','bha','ma','yaw','ra','la','waw','motosaw','petchiryakha','patalosaw','ha','chhya','tra','gya']
 
 img = cv2.imread('a.jpg',cv2.IMREAD_GRAYSCALE)
 blur = cv2.GaussianBlur(img,(5,5),0)
@@ -50,6 +50,6 @@ for start,end in lines:
 		character = cv2.bitwise_not(character)
 		resized_img = cv2.resize(character,(32,32))
 		p=predict(resized_img)
-		print(np.argmax(p))
-# 		print(labels[np.argmax(p)])
+# 		print(np.argmax(p))
+		print(labels[np.argmax(p)])
 		
